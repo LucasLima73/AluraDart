@@ -1,0 +1,4 @@
+enum Transporte{
+  carro,
+  andando
+}

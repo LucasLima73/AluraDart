@@ -3,16 +3,10 @@ import 'dart:ffi';
 import 'package:untitled/untitled.dart' as untitled;
 
 import 'classeAbstrata.dart';
+import 'enum.dart';
 
 void main(List<String> arguments) {
-  Fruta morango = Fruta("Morango", 40.5, "Vermelho", "Morango", 10);
-
-  Legumes mandioca = Legumes('Mandioca', "Branco", 1000.5, true);
-
-  mandioca.printAlimento();
-  mandioca.cozinhar();
-  morango.printAlimento();
-
+  escolherMeioDeTransporte(Transporte.andando);
 }
 
 class Fruta extends Alimento {
@@ -20,8 +14,8 @@ class Fruta extends Alimento {
   int diasDesdeColheita;
   bool? isMadura;
 
-  Fruta(
-      String nome, double peso, String cor, this.sabor, this.diasDesdeColheita,
+  Fruta(String nome, double peso, String cor, this.sabor,
+      this.diasDesdeColheita,
       {this.isMadura})
       : super(nome, peso, cor);
 
@@ -48,7 +42,7 @@ class Alimento {
   }
 }
 
-class Legumes extends Alimento implements Bolo{
+class Legumes extends Alimento implements Bolo {
   bool isPrecisaCozinhar;
 
   Legumes(String nome, String cor, double peso, this.isPrecisaCozinhar)
@@ -75,5 +69,18 @@ class Legumes extends Alimento implements Bolo{
   @override
   void separarIngredientes() {
     // TODO: implement separarIngredientes
+  }
+}
+
+void escolherMeioDeTransporte(Transporte locomocao) {
+  switch (locomocao) {
+    case Transporte.carro:
+      print("vou de carro");
+      break;
+    case Transporte.andando:
+      print("Vou andando");
+    break;
+    default:
+      print("Vou sair");
   }
 }
