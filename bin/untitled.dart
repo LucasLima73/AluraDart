@@ -2,6 +2,8 @@ import 'dart:ffi';
 
 import 'package:untitled/untitled.dart' as untitled;
 
+import 'classeAbstrata.dart';
+
 void main(List<String> arguments) {
   Fruta morango = Fruta("Morango", 40.5, "Vermelho", "Morango", 10);
 
@@ -46,7 +48,7 @@ class Alimento {
   }
 }
 
-class Legumes extends Alimento {
+class Legumes extends Alimento implements Bolo{
   bool isPrecisaCozinhar;
 
   Legumes(String nome, String cor, double peso, this.isPrecisaCozinhar)
@@ -58,5 +60,20 @@ class Legumes extends Alimento {
     } else {
       print("Não precisa cozinhar");
     }
+  }
+
+  @override
+  void assar() {
+    // TODO: implement assar
+  }
+
+  @override
+  void fazerMassa() {
+    // TODO: implement fazerMassa
+  }
+
+  @override
+  void separarIngredientes() {
+    // TODO: implement separarIngredientes
   }
 }
